@@ -102,6 +102,9 @@ function handleLayerClick(event) {
 map.on('draw:created', function (e) {
   var layer = e.layer;
   drawnItems.addLayer(layer);
+
+  // 新增的layer也绑定event
+  layer.on('click', handleLayerClick);
   //console.log(JSON.stringify(drawnItems.toGeoJSON()));
 });
 
