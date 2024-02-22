@@ -81,7 +81,7 @@ window.onload = function () {
   });
 
   var geoJson = L.geoJson(loadJson(), {
-    fillContent: (ctx, layer) => {
+    onFillContent: (ctx, layer) => {
       // 创建图片
       const img = document.createElement('img');
       img.src = '//www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png';
@@ -115,6 +115,7 @@ window.onload = function () {
       // console.log(tree.toJSON());
     },
     onEachFeature: function (feature, layer) {
+      console.log(map.getRenderer(map));
       if (feature.geometry.type == "LineString") {
         layer.setStyle({
           color: 'purple',

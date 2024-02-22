@@ -12893,7 +12893,6 @@
 
   	_fillStroke: function (ctx, layer) {
   		var options = layer.options;
-  		const { fillContent } = options;
 
   		if (options.fill) {
   			ctx.globalAlpha = options.fillOpacity;
@@ -12913,8 +12912,8 @@
   			ctx.stroke();
   		}
 
-  		if (typeof fillContent === 'function') {
-  			fillContent(ctx, layer);
+  		if (typeof options.onFillContent === 'function') {
+				options.onFillContent(ctx, layer);
 			}
   	},
 
